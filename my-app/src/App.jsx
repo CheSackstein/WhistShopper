@@ -14,23 +14,22 @@ function App() {
     <div className="App" style={{backgroundColor:"#85DCB",color:"#85DCB"}}>
       <Router>
         <Switch>
-          <Route exact path="/">
-            <Home />
+          <Route exact path="/" component={Home}>
+           
           </Route>
-          <Route exact path="/Search">
-            <Search />
-          </Route>
-          <Route exact path="/MyPet">
-            <MyPet />
-          </Route>
-          <PrivateRoute exact path="/AdminPet">
+          <PrivateRoute exact path="/Search" component={Search}>
+          </PrivateRoute>
+          <PrivateRoute exact path="/MyPet" component={MyPet}>
+     
+          </PrivateRoute>
+          <PrivateRoute exact path="/AdminPet" component={AdminPet}>
             <AdminPet />
           </PrivateRoute>
-          <Route exact path="/ProfileSettings">
-            <ProfileSettings />
-          </Route>
-          <PrivateRoute exact path="/AddPet">
-            <AddPet />
+          <PrivateRoute exact path="/ProfileSettings" component={ProfileSettings}>
+           
+          </PrivateRoute>
+          <PrivateRoute exact path="/AddPet" component={AddPet}>
+           
           </PrivateRoute>
 
           <Route>
@@ -46,6 +45,9 @@ function App() {
               </li>
               <li>
                 <Link to="/Search">Search</Link>
+              </li>
+              <li>
+                <Link to="/AdminPet">AdminPet</Link>
               </li>
               <li>
                 <Link to="/">Home</Link>

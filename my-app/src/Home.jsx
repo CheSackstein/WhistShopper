@@ -4,6 +4,7 @@ import { FontAwesome } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
 import React, { useEffect, useState } from "react";
 import pupPic2 from "./PupPic2.jpg";
+import axios from 'axios'
 import {
   Button,
   Modal,
@@ -131,27 +132,31 @@ function Home(props) {
    
     console.log(frmData)
     
-let response = await  fetch('http://localhost:5000/api/user/login', {
-      method: "POST",
-      body: JSON.stringify(frmData),
-      headers: {"Content-type": "application/json; charset=UTF-8"}
-    })
+// let response = await  fetch('http://localhost:5000/api/user/login', {
+//       method: "POST",
+//       body: JSON.stringify(frmData),
+//       headers: {"Content-type": "application/json; charset=UTF-8"}
+//     })
+const response = await axios.post("http://localhost:5000/api/user/login", {
+            Email: email,
+            Password: password
+        })
 
-    const body = await response;
-    console.log(response);
-    console.log(body.headers);
-    const url = body.url;
-    console.log(url);
-    if (response.status !== 200) {
-      throw Error(body);
-    } else 
+    // const body = await response;
+    // console.log(response);
+    // console.log(body.headers);
+    // const url = body.url;
+    // console.log(url);
+    // if (response.status !== 200) {
+    //   throw Error(body);
+    // } else 
 
   if (response.status === 200) {
     localStorage.setItem('token', response);
   }
-console.log(response)
+console.log(response.data)
 history.push('/')
-//const reload = window.location.reload()
+const reload = window.location.reload()
 }
 
      
@@ -169,30 +174,31 @@ history.push('/')
     // .catch(err => console.log('Request Failed', err));
 
     let response = await  fetch('http://localhost:5000/api/pets',{
-    headers: {
-      'Authorization':"auth-token" + localStorage.getItem['token'], 
-    }})
-    console.log('fetch')
-    const body = await response;
-    console.log(response);
-    console.log(body.headers);
-    const url = body.url;
-    console.log(url);
+  })
+
+    console.log(response.data)
   }
 
   fetchPets();
 
-async function fetchUsers() {
+async function fetchUsers(event) {
 
-   let response = await  fetch('http://localhost:5000/api/user/login', {
-
-    })
+    event.preventDefault()
    
-    const body = await response;
-    console.log(response);
-    console.log(body.headers);
-    const url = body.url;
-    console.log(url);
+    const response = await axios.post("http://localhost:5000/api/user/login", {
+        email: email,
+        password: password
+    })
+    if (response.status === 200) {
+        localStorage.setItem('token', response.data);
+    }
+    // })
+   
+    // const body = await response;
+    // console.log(response);
+    // console.log(body.headers);
+    // const url = body.url;
+    // console.log(url);
   // if (response.status !== 200) {
   //    throw Error(body);
   //   } 

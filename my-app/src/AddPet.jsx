@@ -150,16 +150,10 @@ function AddPet(props) {
               </FormGroup>
             </Col>
             <Col md={6}>
-              <FormGroup>
-                <Label for="picture">Picture:</Label>
-                <Input
-                  type="picture"
-                  name="picture"
-                  id="picture"
-                  placeholder="picture"
-                  onChange={(e) => setPicture(e.target.value)}
-                />
-              </FormGroup>
+            <FormGroup>
+        <Label for="exampleFile">File</Label>
+        <Input type="file" name="file" id="exampleFile" />
+      </FormGroup>
             </Col>
           </Row>
           <Row form style={{ alignContent: "center" }}>
