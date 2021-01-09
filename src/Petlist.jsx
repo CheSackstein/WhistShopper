@@ -63,13 +63,13 @@ function Petlist(props) {
               textAlign: "center",
             }}
           >
-            <CardTitle tag="h5">Name: {props.petName} </CardTitle>
+            <CardTitle tag="h5"> {props.petName} </CardTitle>
             <CardSubtitle tag="h6" className="mb-2 text-muted">
-              Type: {props.petType}
+             {props.petType}
             </CardSubtitle>
             <CardText style={{ color: "white" }}>
-              <br></br>
-              Status : {props.petStatus}
+              
+              {props.petStatus}
               <br></br>
               {props.petBio}
             </CardText>
@@ -78,6 +78,9 @@ function Petlist(props) {
               petType={props.petType}
               petBreed={props.petBreed}
               petStatus={props.petStatus}
+              petAllergies={props.petAllergies}
+              petBio={props.petBio}
+              petRestriction={props.petRestrictions}
             />
           </CardBody>
         </Card>

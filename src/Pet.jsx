@@ -28,16 +28,20 @@ function Pet(props) {
      <div className='MyPet'>
       <Button color="secondary" onClick={toggleSign} className="MyPet" style={{height:'50px', width:'100px',borderRadius:'30px',marginTop:'20px',left:"20px",backgroundColor:"#41B3A3"}}>See more</Button>
       <Modal isOpen={modalSign} toggle={toggleSign} >
-        <ModalHeader toggle={toggleSign} style={{color:"Black"}}>MyPet</ModalHeader>
+        <ModalHeader toggle={toggleSign} style={{color:"Black"}}>{ props.petName }</ModalHeader>
         <ModalBody>
         <ListGroup>
-          <ListGroupItem>Name: { props.name } </ListGroupItem>
-          <ListGroupItem>Type: </ListGroupItem>
-          <ListGroupItem>Status: </ListGroupItem>
-          <ListGroupItem>Breed : </ListGroupItem>
-          <ListGroupItem>Description: </ListGroupItem>
-          <ListGroupItem>HypoAllergenic: </ListGroupItem>
-          <ListGroupItem>Restrictions: </ListGroupItem>
+          <ListGroupItem>Name: { props.petName } </ListGroupItem>
+          <ListGroupItem>Type: { props.petType } </ListGroupItem>
+          <ListGroupItem>Status: { props.petStatus } </ListGroupItem>
+          <ListGroupItem>Breed : { props.petBreed } </ListGroupItem>
+          <ListGroupItem>Description: { props.petDescription } </ListGroupItem>
+          <ListGroupItem>HypoAllergenic: { props.petAllergies } </ListGroupItem>
+          <ListGroupItem>Restrictions: { props.petName } </ListGroupItem>
+          <ListGroupItem>Height: { props.petHeight } </ListGroupItem>
+          <ListGroupItem>Weight: { props.petWeight } </ListGroupItem>
+          <ListGroupItem>Color: { props.petColor } </ListGroupItem>
+        
         </ListGroup>
         </ModalBody>
       </Modal>
