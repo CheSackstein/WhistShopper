@@ -9,25 +9,6 @@ import {
   Modal,
   ModalHeader,
   ModalBody,
-  ModalFooter,
-  Form,
-  Input,
-  Label,
-  FormText,
-  Collapse,
-  Container,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText,
-  FormGroup,
   ListGroup,
   ListGroupItem,
 } from "reactstrap";
@@ -40,6 +21,8 @@ function Pet(props) {
   const [modalSign, setModalSign] = useState(false);
   const [modalLog, setModalLog] = useState(false);
   const toggleSign = () => setModalSign(!modalSign);
+  console.log(props.petData)
+  const { name, type, status, bio, restrictions, hypoAllergenic, breed } = props;
   return (
     <div>
      <div className='MyPet'>
@@ -48,11 +31,13 @@ function Pet(props) {
         <ModalHeader toggle={toggleSign} style={{color:"Black"}}>MyPet</ModalHeader>
         <ModalBody>
         <ListGroup>
-          <ListGroupItem>Cras justo odio</ListGroupItem>
-          <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-          <ListGroupItem>Morbi leo risus</ListGroupItem>
-          <ListGroupItem>Porta ac consectetur ac</ListGroupItem>
-          <ListGroupItem>Vestibulum at eros</ListGroupItem>
+          <ListGroupItem>Name: { props.name } </ListGroupItem>
+          <ListGroupItem>Type: </ListGroupItem>
+          <ListGroupItem>Status: </ListGroupItem>
+          <ListGroupItem>Breed : </ListGroupItem>
+          <ListGroupItem>Description: </ListGroupItem>
+          <ListGroupItem>HypoAllergenic: </ListGroupItem>
+          <ListGroupItem>Restrictions: </ListGroupItem>
         </ListGroup>
         </ModalBody>
       </Modal>

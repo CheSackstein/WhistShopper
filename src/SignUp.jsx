@@ -4,7 +4,7 @@ import { FontAwesome } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
 import React, { useEffect, useState } from "react";
 import pupPic2 from "./PupPic2.jpg";
-import axios from 'axios'
+import axios from "axios";
 import {
   Button,
   Modal,
@@ -32,9 +32,9 @@ import {
 } from "reactstrap";
 import NavBar from "./NavBar";
 import { Link, useHistory } from "react-router-dom";
-import { getPet, getUsers,createUser } from "./lib/api";
+import { getPet, getUsers, createUser } from "./lib/api";
 
-function Home(props) {
+function SignUp(props) {
   const [user, setUser] = useState("");
   const [findUser, getUser] = useState("");
   const [modalLog, setModalLog] = useState(false);
@@ -46,7 +46,7 @@ function Home(props) {
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const toggleLog = () => setModalLog(!modalLog);
   const [modalSign, setModalSign] = useState(false);
-  const history= useHistory();
+  const history = useHistory();
   const toggleSign = () => setModalSign(!modalSign);
 
   function onSignUp(event) {
@@ -80,7 +80,6 @@ function Home(props) {
   function onAddUser(event) {
     const newUser = user;
     console.log(newUser);
-  
   }
 
   const submitValueSignUp = () => {
@@ -93,7 +92,7 @@ function Home(props) {
       PasswordConfirm: passwordConfirm,
     };
     console.log(frmdetails);
-    createUser(frmdetails)
+    createUser(frmdetails);
   };
   const submitValueLogin = () => {
     const frmdetails = {
@@ -101,7 +100,7 @@ function Home(props) {
       Password: password,
     };
     console.log(frmdetails);
-    sendUser(frmdetails)
+    sendUser(frmdetails);
   };
 
   const [fName, setfName] = useState("");
@@ -113,128 +112,71 @@ function Home(props) {
 
   // Call our fetch function below once the component mounts
 
-  
-  async function callBackendAPI() {
-    const response = await fetch("http://localhost:5000/api/pets");
-    const body = await response;
-    console.log(response);
-    console.log(body.headers);
-    const url = body.url;
-    console.log(url);
-    if (response.status !== 200) {
-      throw Error(body);
-    }
+  // async function callBackendAPI() {
+  //   const response = await fetch("http://localhost:5000/api/pets");
+  //   const body = await response;
+  //   console.log(response);
+  //   console.log(body.headers);
+  //   const url = body.url;
+  //   console.log(url);
+  //   if (response.status !== 200) {
+  //     throw Error(body);
+  //   }
 
-    return body;
-  }
+  //   return body;
+  // }
 
- async function sendUser(frmData){
-   
-    console.log(frmData)
-    
-// let response = await  fetch('http://localhost:5000/api/user/login', {
-//       method: "POST",
-//       body: JSON.stringify(frmData),
-//       headers: {"Content-type": "application/json; charset=UTF-8"}
-//     })
-const response = await axios.post("http://localhost:5000/api/user/login", {
-            Email: email,
-            Password: password
-        })
+  async function sendUser(frmData) {
+    console.log(frmData);
 
-    // const body = await response;
-    // console.log(response);
-    // console.log(body.headers);
-    // const url = body.url;
-    // console.log(url);
-    // if (response.status !== 200) {
-    //   throw Error(body);
-    // } else 
-
-  if (response.status === 200) {
-    localStorage.setItem('token', response);
-  }
-console.log(response.data)
-history.push('/')
-const reload = window.location.reload()
-}
-
-     
-    //.catch(err => console.log(err));
-  
-
-  async function fetchPets() {
-    // let id = Date.now();
-    // const response = await getPet();
-    // console.log(response);
-    // fetch('http://localhost:5000/api/pets')
-    // // Handle success
-    // .then(response => response.json())  // convert to json
-    // .then(json => console.log(json))    //print data to console
-    // .catch(err => console.log('Request Failed', err));
-
-    let response = await  fetch('http://localhost:5000/api/pets',{
-  })
-
-    console.log(response.data)
-  }
-
-  fetchPets();
-
-async function fetchUsers(event) {
-
-    event.preventDefault()
-   
     const response = await axios.post("http://localhost:5000/api/user/login", {
-        email: email,
-        password: password
-    })
+      Email: email,
+      Password: password,
+    });
+
     if (response.status === 200) {
-        localStorage.setItem('token', response.data);
+      localStorage.setItem("token", response);
     }
-    // })
-   
-    // const body = await response;
-    // console.log(response);
-    // console.log(body.headers);
-    // const url = body.url;
-    // console.log(url);
-  // if (response.status !== 200) {
-  //    throw Error(body);
-  //   } 
-}
-  
-
-//fetchUsers();
-
-  useEffect(() => {
-  // callBackendAPI()
-  //     .then((res) => setData(res.data))
-      
-  //     .catch((err) => console.log(err));
-  });
+    console.log(response.data);
+    history.push("/Home");
+ window.location.reload();
+  }
 
 
+
+  // async function fetchPets() {
+
+  //   let response = await fetch("http://localhost:5000/api/pets", {});
+
+  //   console.log(response.data);
+  // }
+
+  // fetchPets();
+
+  async function fetchUsers(event) {
+    event.preventDefault();
+
+    const response = await axios.post("http://localhost:5000/api/user/login", {
+      email: email,
+      password: password,
+    });
+    if (response.status === 200) {
+      localStorage.setItem("token", response.data);
+    }
+ 
+  }
   return (
     <div>
-      <NavBar />
-      <h2 style={{ color: "white" }}>Welcome to MyPet, come here often?</h2>
-      <img
-        src={pupPic2}
-        alt="Pup"
-        style={{ height: "450px", borderRadius: "25px" }}
-      ></img>
       <div className="Signup">
         <Button
           color="secondary"
           onClick={toggleSign}
           className="Signup"
           style={{
-            height: "200px",
-            width: "400px",
-            borderRadius: "30px",
-            marginTop: "20px",
-            fontSize: "40px",
+            height: "70px",
+            width: "130px",
+            borderRadius: "20px",
+            fontSize: "20px",
             left: "20px",
             backgroundColor: "#41B3A3",
           }}
@@ -319,55 +261,8 @@ async function fetchUsers(event) {
         </Modal>
       </div>
 
-      <div className="Login">
-        <Button
-          color="secondary"
-          onClick={toggleLog}
-          className="Login"
-          style={{
-            height: "200px",
-            width: "400px",
-            borderRadius: "30px",
-            marginTop: "20px",
-            fontSize: "40px",
-            left: "20px",
-            backgroundColor: "#41B3A3",
-          }}
-        >
-          Login
-        </Button>
-        <Modal isOpen={modalLog} toggle={toggleLog} id="login">
-          <ModalHeader toggle={toggleLog}>Login</ModalHeader>
-          <ModalBody>
-            <Form onSubmit={(event) => onLogin(event)}>
-              <FormGroup>
-                <Label for="exampleEmail">Email</Label>
-                <Input
-                  type="email"
-                  name="email"
-                  id="exampleEmail"
-                  placeholder="Email"
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </FormGroup>
-              <FormGroup>
-                <Label for="examplePassword">Password</Label>
-                <Input
-                  type="password"
-                  name="password"
-                  id="examplePassword"
-                  placeholder="Password"
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </FormGroup>
-              <Button type="primary" color="primary" onClick={submitValueLogin}>
-                Log in
-              </Button>
-            </Form>
-          </ModalBody>
-        </Modal>
-      </div>
+    
     </div>
   );
 }
-export default Home;
+export default SignUp;

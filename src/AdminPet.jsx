@@ -1,14 +1,8 @@
-import React from "react";
+import App from "./App";
+import { FontAwesome } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
+import React, { useState } from "react";
 import {
-  Button,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  Form,
-  Input,
-  Label,
-  FormText,
   Collapse,
   Container,
   Navbar,
@@ -17,19 +11,14 @@ import {
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
   NavbarText,
-  FormGroup,
 } from "reactstrap";
-import { FontAwesome } from "react-icons/fa";
-import { FaUser } from "react-icons/fa";
-function NavBar(props) {
+import { Link } from "react-router-dom";
+
+function AdminPet(props) {
   return (
     <div>
-      <Navbar style={{color:"#C38D9E",backgroundColor:"#41B3A3"}} dark expand="md">
+      <Navbar color="dark" dark expand="md">
         <NavbarBrand href="/">MyNextPet</NavbarBrand>
         <NavbarToggler />
         <Collapse navbar>
@@ -42,12 +31,12 @@ function NavBar(props) {
             </NavItem>
           </Nav>
 
-          <NavLink href="/AddPet">AddPet</NavLink>
           <NavLink href="/AdminPet">Admin</NavLink>
           <NavLink href="/ProfileSettings">
             {" "}
             <FaUser style={{ color: "white", right: "0%" }} />
           </NavLink>
+
           <NavbarText> Che Sackstein</NavbarText>
         </Collapse>
       </Navbar>
@@ -55,4 +44,4 @@ function NavBar(props) {
   );
 }
 
-export default NavBar;
+export default AdminPet;

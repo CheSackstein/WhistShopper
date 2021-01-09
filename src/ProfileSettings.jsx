@@ -44,18 +44,28 @@ function ProfileSettings(props) {
   function onLogin(event) {
     event.preventDefault();
 
-    const findUser = {
-      "First Name": fName,
-      "Last Name": lName,
+    const formData = {
+      firstName: fName,
+      lastName: lName,
       Phone: phone,
       Email: email,
       Password: password,
       PasswordConfirm: passwordConfirm,
     };
 
-    getUser(findUser);
-    onAddUser(findUser);
-    console.log(JSON.stringify(findUser));
+    getUser(formData);
+    onAddUser(formData);
+    console.log(JSON.stringify(formData));
+    console.log(formData);
+    const requestOptions = {
+        method: 'POST',
+        body: formData
+    }
+    fetch("http://localhost:5000/api/users", requestOptions)
+    .then(res => {
+            console.log(formData);
+            console.log(res.status);
+        })
   }
 
   function onAddUser(event) {

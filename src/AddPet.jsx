@@ -14,18 +14,8 @@ import {
   Form,
   Input,
   Label,
-  FormText,
-  Collapse,
-  Container,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
   Col,
   Row,
-  NavbarText,
   FormGroup,
 } from "reactstrap";
 import { getPet } from "./lib/api";
@@ -43,27 +33,42 @@ function AddPet(props) {
   const [hypo, setHypo] = useState("");
   const [restrictions, setRestrictions] = useState("");
   const [breed, setBreed] = useState("");
-  function onLogin(event) {
+  function onSave(event) {
     event.preventDefault();
 
-    const findPet = {
-      Type: type,
-      Name: Name,
-      Status: status,
-      Picture: picture,
-      Height: height,
-      Weight: weight,
-      Color: color,
-      Bio: bio,
-      "Hypo-Allergenic": hypo,
-      Restrictions: restrictions,
-      Breed: breed,
+    const file = event.target.files[0];
+    setPicture(file);
+    let formData = {
+      type: type,
+      name: Name,
+      status: status,
+      picture: picture,
+      height: height,
+      weight: weight,
+      color: color,
+      bio: bio,
+      hypoAllergenic: hypo,
+      restrictions: restrictions,
+      breed: breed,
     };
 
-    getPet(findPet);
-    onAddPet(findPet);
-    createPet(findPet);
-    console.log(JSON.stringify(findPet));
+    async function fetchPets() {
+      let response = await getPet();
+      console.log(response.data);
+    }
+    fetchPets();
+    onAddPet(formData);
+    createPet(formData);
+    console.log(JSON.stringify(formData));
+    console.log(formData);
+    const requestOptions = {
+      method: "POST",
+      body: formData,
+    };
+    fetch("http://localhost:5000/api/pets", requestOptions).then((res) => {
+      console.log(formData);
+      console.log(res.status);
+    });
   }
 
   function onAddPet(event) {
@@ -71,45 +76,12 @@ function AddPet(props) {
     console.log(newPet);
   }
 
-  const submitValueSignUp = () => {
-    const frmdetails = {
-      Type: type,
-      Name: Name,
-      Status: status,
-      Picture: picture,
-      Height: height,
-      Weight: weight,
-      Color: color,
-      Bio: bio,
-      "Hypo-Allergenic": hypo,
-      Restrictions: restrictions,
-      Breed: breed,
-    };
-    console.log(frmdetails);
-  };
-  const submitValueLogin = () => {
-    const frmdetails = {
-      Type: type,
-      Name: Name,
-      Status: status,
-      Picture: picture,
-      Height: height,
-      Weight: weight,
-      Color: color,
-      Bio: bio,
-      "Hypo-Allergenic": hypo,
-      Restrictions: restrictions,
-      Breed: breed,
-    };
-    console.log(frmdetails);
-  };
-
   return (
     <div>
       <NavBar />
 
-      <div className="Login">
-        <Form onSubmit={(event) => onLogin(event)}>
+      <div className="Save">
+        <Form onSubmit={(event) => onSave(event)}>
           <Row form>
             <Col md={6}>
               <FormGroup>
@@ -150,10 +122,10 @@ function AddPet(props) {
               </FormGroup>
             </Col>
             <Col md={6}>
-            <FormGroup>
-        <Label for="exampleFile">File</Label>
-        <Input type="file" name="file" id="exampleFile" />
-      </FormGroup>
+              <FormGroup>
+                <Label for="exampleFile">File</Label>
+                <Input type="file" name="file" id="exampleFile" />
+              </FormGroup>
             </Col>
           </Row>
           <Row form style={{ alignContent: "center" }}>
@@ -249,7 +221,7 @@ function AddPet(props) {
           <Button
             type="Primary"
             color="primary"
-            onSubmit={(event) => onLogin(event)}
+            onSubmit={(event) => onSave(event)}
           >
             Save Changes
           </Button>
