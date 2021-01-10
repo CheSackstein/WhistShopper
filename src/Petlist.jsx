@@ -38,7 +38,6 @@ import { getPet } from "./lib/api";
 import puppyPic from "./puppyPic.jpg";
 
 function Petlist(props) {
-
   return (
     <Row>
       <Col md={3}>
@@ -46,7 +45,7 @@ function Petlist(props) {
           <CardImg
             width="50px"
             alt="Card image cap"
-            //  src={ props.pets[0].picture }
+            src={props.petPicture}
             style={{
               width: "200px",
               justifyContent: "center",
@@ -65,10 +64,9 @@ function Petlist(props) {
           >
             <CardTitle tag="h5"> {props.petName} </CardTitle>
             <CardSubtitle tag="h6" className="mb-2 text-muted">
-             {props.petType}
+              {props.petType}
             </CardSubtitle>
             <CardText style={{ color: "white" }}>
-              
               {props.petStatus}
               <br></br>
               {props.petBio}

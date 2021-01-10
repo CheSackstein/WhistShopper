@@ -27,9 +27,6 @@ function Dashboard(props) {
   const history = useHistory();
   const toggleSign = () => setModalSign(!modalSign);
 
-  //history.push("/");
-  // const reload = window.location.reload();
-
   return (
     <div style={{ backgroundColor: "#85DCB", color: "#85DCB" }}>
       <h2 style={{ color: "white" }}>Welcome to MyPet, come here often?</h2>

@@ -48,7 +48,7 @@ function Login(props) {
   const [modalSign, setModalSign] = useState(false);
   const history = useHistory();
   const toggleSign = () => setModalSign(!modalSign);
-
+  const [isAdmin, setIsAdmin] = useState(false);
   function onSignUp(event) {
     event.preventDefault();
     const newUser = {
@@ -82,18 +82,6 @@ function Login(props) {
     console.log(newUser);
   }
 
-  const submitValueSignUp = () => {
-    const frmdetails = {
-      "First Name": fName,
-      "Last Name": lName,
-      Phone: phone,
-      Email: email,
-      Password: password,
-      PasswordConfirm: passwordConfirm,
-    };
-    console.log(frmdetails);
-    createUser(frmdetails);
-  };
   const submitValueLogin = () => {
     const frmdetails = {
       Email: email,
@@ -102,29 +90,6 @@ function Login(props) {
     console.log(frmdetails);
     sendUser(frmdetails);
   };
-
-  const [fName, setfName] = useState("");
-  const [lName, setlName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [data, setData] = useState("");
-
-  // Fetches our GET route from the Express server. (Note the route we are fetching matches the GET route from server.js
-
-  // Call our fetch function below once the component mounts
-
-  async function callBackendAPI() {
-    const response = await fetch("http://localhost:5000/api/pets");
-    const body = await response;
-    console.log(response);
-    console.log(body.headers);
-    const url = body.url;
-    console.log(url);
-    if (response.status !== 200) {
-      throw Error(body);
-    }
-
-    return body;
-  }
 
   async function sendUser(frmData) {
     console.log(frmData);
@@ -142,10 +107,6 @@ function Login(props) {
     const reload = window.location.reload();
   }
 
-
-
-
-
   async function fetchUsers(event) {
     event.preventDefault();
 
@@ -156,14 +117,7 @@ function Login(props) {
     if (response.status === 200) {
       localStorage.setItem("token", response.data);
     }
- 
   }
-
-  //fetchUsers();
-
-  useEffect(() => {
-  
-  });
 
   return (
     <div>

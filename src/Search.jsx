@@ -33,14 +33,14 @@ import NavBar from "./NavBar";
 import { FaUser } from "react-icons/fa";
 import React, { useState } from "react";
 
-function Search({input:keyword, onChange:setKeyword}) {
+function Search() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [splitButtonOpen, setSplitButtonOpen] = useState(false);
   const [open, setOpen] = useState(false);
   const [isBtnClicked, setBtnClicked] = useState(false);
   const toggle = () => setOpen(!dropdownOpen);
   const toggleDropDown = () => setDropdownOpen(!dropdownOpen);
-//const [keyword,setKeyword] = useState('');
+  const [keyword, setKeyword] = useState("");
   const toggleSplit = () => setSplitButtonOpen(!splitButtonOpen);
   function BtnClicked(event) {
     setBtnClicked(!isBtnClicked);
@@ -51,14 +51,15 @@ function Search({input:keyword, onChange:setKeyword}) {
     <div>
       <br></br>
       <InputGroup>
-        <Input key="random1"
-     value={keyword}
-     placeholder="search pets"
-     onChange={(event) => setKeyword(event.target.value)} />
-      <Button color="primary">
-        Basic Search
-      </Button> </InputGroup>
-     
+        <Input
+          key="random1"
+          value={keyword}
+          placeholder="search pets"
+          onChange={(event) => setKeyword(event.target.value)}
+        />
+        <Button color="primary">Basic Search</Button>{" "}
+      </InputGroup>
+
       <Button color="primary" onClick={(event) => BtnClicked(event)}>
         Advanced Search
       </Button>
@@ -69,17 +70,4 @@ function Search({input:keyword, onChange:setKeyword}) {
 
 export default Search;
 
-// const SearchBar = ({keyword,setKeyword}) => {
-//   const BarStyling = {width:"20rem",background:"#F2F1F9", border:"none", padding:"0.5rem"};
-//   return (
-//     <input 
-//      style={BarStyling}
-//      key="random1"
-//      value={keyword}
-//      placeholder={"search country"}
-//      onChange={(e) => setKeyword(e.target.value)}
-//     />
-//   );
-// }
 
-// export default SearchBar

@@ -71,8 +71,7 @@ function ProfileSettings(props) {
   function onAddUser(event) {
     const newUser = user;
     console.log(newUser);
-    //  onAddUser(newUser);
-    //  window.location.reload();
+  
   }
 
   const submitValueSignUp = () => {
@@ -101,26 +100,6 @@ function ProfileSettings(props) {
   return (
     <div>
       <NavBar />
-      {/* <Navbar color="dark" dark expand="md">
-        <NavbarBrand href="/">MyNextPet</NavbarBrand>
-        <NavbarToggler />
-        <Collapse navbar>
-          <Nav className="mr-auto" navbar>
-            <NavItem>
-              <NavLink href="/Search">Search</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/MyPet">MyPet</NavLink>
-            </NavItem>
-          </Nav>
-          <NavLink href="/AddPet">AddPet</NavLink>
-          <NavLink href="/ProfileSettings">
-            {" "}
-            <FaUser style={{ color: "white" }} />
-          </NavLink>
-          <NavbarText> Che Sackstein</NavbarText>
-        </Collapse>
-      </Navbar> */}
       <div className="Login">
         <Form onSubmit={(event) => onLogin(event)}>
           <FormGroup>

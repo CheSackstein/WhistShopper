@@ -139,10 +139,8 @@ function SignUp(props) {
     }
     console.log(response.data);
     history.push("/Home");
- window.location.reload();
+    window.location.reload();
   }
-
-
 
   // async function fetchPets() {
 
@@ -163,7 +161,6 @@ function SignUp(props) {
     if (response.status === 200) {
       localStorage.setItem("token", response.data);
     }
- 
   }
   return (
     <div>
@@ -260,8 +257,6 @@ function SignUp(props) {
           </ModalBody>
         </Modal>
       </div>
-
-    
     </div>
   );
 }

@@ -33,7 +33,7 @@ function AdvancedSearch(props) {
   const [height, setHeight] = useState("");
   const [weight, setWeight] = useState("");
 
-  function onLogin(event) {
+  function onSearch(event) {
     event.preventDefault();
 
     const findPet = {
@@ -77,7 +77,7 @@ function AdvancedSearch(props) {
 
   return (
     <div className="AdvancedSearch">
-      <Form onSubmit={(event) => onLogin(event)}>
+      <Form onSubmit={(event) => onSearch(event)}>
         <Row form>
           <Col md={6}>
             <FormGroup>
@@ -160,7 +160,7 @@ function AdvancedSearch(props) {
         <Button
           type="Primary"
           color="primary"
-          onSubmit={(event) => onLogin(event)}
+          onSubmit={(event) => onSearch(event)}
         >
           Save Changes
         </Button>
