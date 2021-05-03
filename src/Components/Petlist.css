@@ -1,0 +1,44 @@
+#card {
+  color: #C38D9E;
+  border-radius: 15px;
+  height:300px;
+width: 368px;
+}
+
+#cardImg {
+  width: 200px;
+  justify-content: center;
+  align-content: center;
+  right: 50px;
+  background-color: #249AB4;
+  text-align: center;
+}
+
+#cardBody {
+  color: white;
+  background-color: #249AB4;
+  text-align: center;
+  border-radius: 15px;
+
+}
+
+.product-grid {
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin-left: 10px;
+  margin-right:10px;
+  
+}
+
+.image {
+  position: relative;
+
+}
+.product-grid:hover {
+box-shadow: 0px 4px 0px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0 , 0.19);
+border-radius: 15px;
+}
+
+#searchList {
+  margin-left: 300px;
+}

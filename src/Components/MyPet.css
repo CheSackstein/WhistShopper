@@ -1,0 +1,16 @@
+#bg {
+    background-image: url("./MyPet.png");
+    background-size: cover;
+    height: 837px;
+    width:1707px;
+    margin-right: 0%;
+}
+
+#myPetContainer {
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+.myPetRow {
+    width:1600px;
+}

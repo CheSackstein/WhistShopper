@@ -1,0 +1,13 @@
+#bg {
+    background-image: url("/src/Components/MyPet2.png");
+    background-size: cover;
+    height: 837px;
+    width:1707px;
+    margin-right: 0%;
+}
+
+#searchList {
+    justify-content: center;
+    height: 200px;
+   margin-top: 15px;
+}
