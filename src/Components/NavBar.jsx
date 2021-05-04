@@ -22,11 +22,11 @@ function NavBar(props) {
   return (
     <div>
       <Navbar
-        style={{ backgroundColor: "#249AB4", fontSize:'25px'}}
+        style={{ backgroundColor: "#FFB48F", fontSize: "25px" }}
         dark
         expand="md"
       >
-        <NavbarBrand href="/Home">MyNextPet</NavbarBrand>
+        <NavbarBrand href="/Home">WhistShopper</NavbarBrand>
         <NavbarToggler />
         <Collapse navbar>
           <Nav className="mr-auto" navbar>
@@ -34,7 +34,7 @@ function NavBar(props) {
               <NavLink href="/SearchPage">Search</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/MyPet">MyPet</NavLink>
+              <NavLink href="/MyPet">Products</NavLink>
             </NavItem>
           </Nav>
           {isAdmin && (
@@ -47,14 +47,11 @@ function NavBar(props) {
               </NavLink>
             </div>
           )}
-          {/* <Login />
-          <SignUp /> */}
-          <NavLink href="/ProfileSettings">
-            {" "}
-            <FaUser style={{ color: "white", right: "0%" }} />
-          </NavLink>
 
-          <NavbarText> Profile</NavbarText>
+          <NavLink style={{ color: "white" }} href="/ProfileSettings">
+            {" "}
+            <FaUser style={{ color: "white", right: "0%" }} /> Profile
+          </NavLink>
         </Collapse>
       </Navbar>
     </div>

@@ -168,17 +168,9 @@ function SignUp(props) {
         <Button
           color="secondary"
           onClick={toggleSign}
-          className="Signup"
-          style={{
-            height: "70px",
-            width: "130px",
-            borderRadius: "20px",
-            fontSize: "20px",
-            left: "20px",
-            backgroundColor: "#41B3A3",
-          }}
-        >
-          Sign up
+          className="SignUpBtn"
+          id="SignUpBtn"
+        >         Sign up
         </Button>
         <Modal isOpen={modalSign} toggle={toggleSign}>
           <ModalHeader toggle={toggleSign} style={{ color: "Black" }}>

@@ -1,8 +1,21 @@
 #LoginBtn {
     height: 70px;
     width: 130px;
-    border-radius: 20px;
+    border-radius: 15px;
+    border-color: antiquewhite;
     font-size: 20px;
-    left: 20px;
-    background-color: #249AB4;
+    background-color: #FFB48F;
+    margin-top:10px;
+    margin-left:1200px;
+}
+
+#SignUpBtn {
+    height: 70px;
+    width: 130px;
+    border-radius: 15px;
+    border-color: antiquewhite;
+    font-size: 20px;
+    background-color: #FFB48F; 
+    margin-top:10px;
+    margin-left: 10px;
 }

@@ -149,7 +149,7 @@ const SearchPage = (props) => {
               placeholder="Search Pets"
               onChange={(event) => setKeyword(event.target.value)}
             />
-            <Button color="primary" onClick={(event) => onBasicSearch(event)}>
+            <Button className='searchBtn' id='searchBtn' onClick={(event) => onBasicSearch(event)}>
               Basic Search
             </Button>{" "}
           </InputGroup>

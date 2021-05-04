@@ -1,7 +1,13 @@
 #bg {
-    background-image: url("/src/MyPet2.png");
+    background-image: url("/src/Components/Background.png");
     background-size: cover;
     height: 837px;
     width:1707px;
     margin-right: 0%;
+}
+
+#submitBtn {
+    background-color: #ff8c8c;
+    border-color: antiquewhite;
+    border-radius: 10px;
 }

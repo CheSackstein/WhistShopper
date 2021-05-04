@@ -9,7 +9,7 @@ import {} from "reactstrap";
 import NavBar from "./NavBar";
 import { Link, useHistory } from "react-router-dom";
 import { getPet, getUsers, createUser } from "../lib/api";
-import './Dashboard.css';
+import "./Dashboard.css";
 
 function Dashboard(props) {
   const [user, setUser] = useState("");
@@ -27,15 +27,15 @@ function Dashboard(props) {
   const toggleSign = () => setModalSign(!modalSign);
 
   return (
-    <div id='body' className='body'>
-      {/* <h2 style={{ color: "white" }}>Welcome to MyPet, come here often?</h2>
-      <img
-        src={pupPic2}
-        alt="Pup"
-        style={{ height: "450px", borderRadius: "25px" }}
-      ></img> */}
-      <Login />
-      <SignUp />
+    <div id="body" className="body">
+      <div class="container" className="dashRow" id="dashRow">
+        <div >
+        <div class="row">
+          <Login />
+          <SignUp />
+        </div>
+        </div>
+      </div>
     </div>
   );
 }

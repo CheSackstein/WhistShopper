@@ -1,5 +1,5 @@
 #bg {
-    background-image: url("/src/Components/MyPet2.png");
+    background-image: url("/src/Components/Background.png");
     background-size: cover;
     height: 837px;
     width:1707px;
@@ -10,4 +10,8 @@
     justify-content: center;
     height: 200px;
    margin-top: 15px;
+}
+#searchBtn {
+    background-color: #ff8c8c;
+    border-color: antiquewhite;
 }

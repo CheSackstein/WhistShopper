@@ -1,7 +1,13 @@
 #body {
-   background-image: url("/src/Components/MyPet.png");
+   background-image: url("/src/Components/Dashboard.png");
    background-size: cover;
    height: 836px;
    width:1707px;
    margin-right: 0%;
+}
+
+#dashRow {
+   background-color:white;
+   height:90px;
+   width:1707px;
 }

@@ -3,7 +3,7 @@ import { useState } from "react";
 import NavBar from "./NavBar";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Button, Form, Input, Label, Row, Col, FormGroup } from "reactstrap";
-import "./ProfileSettings";
+import "./ProfileSettings.css";
 
 function ProfileSettings(props) {
   const [user, setUser] = useState("");
@@ -48,28 +48,8 @@ function ProfileSettings(props) {
     console.log(newUser);
   }
 
-  const submitValueSignUp = () => {
-    const frmdetails = {
-      "First Name": fName,
-      "Last Name": lName,
-      Phone: phone,
-      Email: email,
-      Password: password,
-      PasswordConfirm: passwordConfirm,
-    };
-    console.log(frmdetails);
-  };
-  const submitValueLogin = () => {
-    const frmdetails = {
-      "First Name": fName,
-      "Last Name": lName,
-      Phone: phone,
-      Email: email,
-      Password: password,
-      PasswordConfirm: passwordConfirm,
-    };
-    console.log(frmdetails);
-  };
+
+ 
 
   return (
     <div id="bg" className="bg">
@@ -157,8 +137,8 @@ function ProfileSettings(props) {
                 </Col>
               </Row>
               <Button
-                type="Primary"
-                color="primary"
+                className='submitBtn'
+                id='submitBtn'
                 onSubmit={(event) => onLogin(event)}
               >
                 Save Changes

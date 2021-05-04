@@ -7,11 +7,10 @@ import { getPet } from "../lib/api";
 
 export async function fetchPets() {
   let response = await getPet();
-console.log(response.data)
-return response.data;
- 
+  console.log(response.data);
+  return response.data;
 }
-fetchPets(); 
+fetchPets();
 function Home(props) {
   const [user, setUser] = useState("");
   const [findUser, getUser] = useState("");
@@ -60,13 +59,11 @@ function Home(props) {
     console.log(newUser);
   }
 
-
   const [fName, setfName] = useState("");
   const [lName, setlName] = useState("");
   const [phone, setPhone] = useState("");
   const [data, setData] = useState("");
 
- 
   async function sendUser(frmData) {
     console.log(frmData);
 
@@ -79,14 +76,11 @@ function Home(props) {
       localStorage.setItem("token", response);
     }
     console.log(response.data);
-  // history.push("/");
+    // history.push("/");
     const reload = window.location.reload();
   }
 
-
-
   async function fetchPets() {
-
     let response = await fetch("http://localhost:5000/api/pets", {});
 
     console.log(response.data);
@@ -94,19 +88,10 @@ function Home(props) {
 
   fetchPets();
 
-
-
   return (
-    <div id='Home' className="Home">
+    <div id="Home" className="Home">
       <NavBar />
-      <h2 style={{ color: "white" }}>Welcome to MyPet, come here often?</h2>
-      {/* <img
-        src={pupPic2}
-        alt="Pup"
-        style={{ height: "450px", borderRadius: "25px" }}
-      ></img> */}
-    
-         </div>
+    </div>
   );
 }
 export default Home;

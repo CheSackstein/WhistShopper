@@ -22,11 +22,11 @@ function NavBar(props) {
   return (
     <div>
       <Navbar
-        style={{ color: "#C38D9E", backgroundColor: "#41B3A3" }}
+        style={{ color: "white", backgroundColor: "#FFB48F" }}
         dark
         expand="md"
       >
-        <NavbarBrand href="/Home">MyNextPet</NavbarBrand>
+        <NavbarBrand href="/Home">WhistShopper</NavbarBrand>
         <NavbarToggler />
         <Collapse navbar>
           <Nav className="mr-auto" navbar>

@@ -1,4 +1,4 @@
-import "./Home.css";
+import "./Login.css";
 import { FontAwesome } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
 import React, { useEffect, useState } from "react";
@@ -163,19 +163,7 @@ function SignUp(props) {
   return (
     <div>
       <div className="Signup">
-        <Button
-          color="secondary"
-          onClick={toggleSign}
-          className="Signup"
-          style={{
-            height: "70px",
-            width: "130px",
-            borderRadius: "20px",
-            fontSize: "20px",
-            left: "20px",
-            backgroundColor: "#41B3A3",
-          }}
-        >
+        <Button color="secondary" onClick={toggleSign} className="SignUpBtn" id="SignUpBtn">
           Sign up
         </Button>
         <Modal isOpen={modalSign} toggle={toggleSign}>
