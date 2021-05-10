@@ -3,14 +3,14 @@ import React, { useState } from "react";
 import axios from "axios";
 import NavBar from "./NavBar";
 import { useHistory } from "react-router-dom";
-import { getPet } from "../lib/api";
+import { getProduct } from "../lib/api";
 
-export async function fetchPets() {
-  let response = await getPet();
+export async function fetchProducts() {
+  let response = await getProduct();
   console.log(response.data);
   return response.data;
 }
-fetchPets();
+fetchProducts();
 function Home(props) {
   const [user, setUser] = useState("");
   const [findUser, getUser] = useState("");
@@ -80,13 +80,13 @@ function Home(props) {
     const reload = window.location.reload();
   }
 
-  async function fetchPets() {
-    let response = await fetch("http://localhost:5000/api/pets", {});
+  async function fetchProducts() {
+    let response = await fetch("http://localhost:5000/api/products", {});
 
     console.log(response.data);
   }
 
-  fetchPets();
+  fetchProducts();
 
   return (
     <div id="Home" className="Home">

@@ -6,13 +6,13 @@ import {
   CardBody,
   CardTitle,
   CardSubtitle,
-  Row,
-  Col,
 } from "reactstrap";
 import './Petlist.css'
+import Buy from "./Buy.jsx";
+import appleWatch from './AppleWatch.jpg' 
 
 const SearchList = (props) => {
-  console.log(props.petType);
+  console.log(props);
   return (
     <>
       
@@ -22,9 +22,8 @@ const SearchList = (props) => {
             id='card'
           >
             <CardImg
-              width="50px"
               alt="Card image cap"
-              src="https://dog.ceo/api/breeds/image/random"
+              // src={appleWatch}
               className="cardImg"
               id='cardImg'
             />
@@ -32,16 +31,17 @@ const SearchList = (props) => {
             id='cardBody'
             className='cardBody'   
             >
-              <CardTitle tag="h5"> {props.petName} </CardTitle>
+              <CardTitle tag="h5"> {props.productTitle} </CardTitle>
               <CardSubtitle tag="h6" className="mb-2 text-muted">
-                Type: {props.petType} <br></br>
-                Breed: {props.petBreed}
+                Price: {props.productPrice} <br></br>
+                Description: {props.productDescription}
               </CardSubtitle>
-              <CardText style={{ color: "white" }}>
-                Adoption status: {props.petStatus}
-                <br></br>
-                Description: {props.petBio}
-              </CardText>
+              <Buy
+              productTitle={props.productTitle}
+              productPrice={props.productPrice}
+              productDesc={props.productDesc}
+              productImage={props.productImage}
+            />
             </CardBody>
           </Card>
         </div>

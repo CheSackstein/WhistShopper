@@ -11,8 +11,9 @@ import {
 } from "reactstrap";
 import { getProduct } from "../lib/api";
 import './Petlist.css'
+import Buy from './Buy.jsx'
 
-function Petlist(props) {
+function ProductList(props) {
   return (
   <>
       <div class='col-sm-3 product-grid'>
@@ -37,7 +38,7 @@ function Petlist(props) {
             <CardText style={{ color: "white" }}>
               {props.productDesc}
             </CardText>
-            <Pet
+            <Buy
               productTitle={props.productTitle}
               productPrice={props.productPrice}
               productDesc={props.productDesc}
@@ -50,4 +51,4 @@ function Petlist(props) {
   );
 }
 
-export default Petlist;
+export default ProductList;

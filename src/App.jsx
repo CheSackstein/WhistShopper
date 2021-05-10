@@ -2,15 +2,12 @@ import logo from "./logo.svg";
 import "./App.css";
 import Home from "./Components/Home";
 import Dashboard from "./Components/Dashboard";
-import Search from "./Components/Search";
 import ProfileSettings from "./Components/ProfileSettings";
 import MyPet from "./Components/MyPet";
-import AddPet from "./Components/AddPet";
-import AdminPet from "./Components/AdminPet";
 import PrivateRoute from "./PrivateRoute";
-import { useAuth } from "./AuthContext";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import SearchPage from "./Components/SearchPage";
+import ProductsPage from "./Components/ProductsPage"
 function App() {
   return (
     <div className="App">
@@ -24,15 +21,13 @@ function App() {
             component={SearchPage}
           ></PrivateRoute>
           <PrivateRoute exact path="/MyPet" component={MyPet}></PrivateRoute>
-          <PrivateRoute exact path="/AdminPet" component={AdminPet}>
-            <AdminPet />
-          </PrivateRoute>
+          <Route exact path="/ProductsPage" component={ProductsPage}>
+          </Route>
           <PrivateRoute
             exact
             path="/ProfileSettings"
             component={ProfileSettings}
           ></PrivateRoute>
-          <PrivateRoute exact path="/AddPet" component={AddPet}></PrivateRoute>
 
           <Route>
             <ul>
@@ -40,16 +35,13 @@ function App() {
                 <Link to="/MyPet">MyPet</Link>
               </li>
               <li>
-                <Link to="/AddPet">AddPet</Link>
+                <Link to="/ProductsPage">Home</Link>
               </li>
               <li>
                 <Link to="/ProfileSettings">Profile Settings</Link>
               </li>
               <li>
                 <Link to="/SearchPage">Search</Link>
-              </li>
-              <li>
-                <Link to="/AdminPet">AdminPet</Link>
               </li>
               <li>
                 <Link to="/Dashboard">Dashboard</Link>

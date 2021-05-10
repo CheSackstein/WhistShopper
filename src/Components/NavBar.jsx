@@ -34,7 +34,10 @@ function NavBar(props) {
               <NavLink href="/SearchPage">Search</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/MyPet">Products</NavLink>
+              <NavLink href="/ProductsPage">Products</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/MyPet">Admin</NavLink>
             </NavItem>
           </Nav>
           {isAdmin && (

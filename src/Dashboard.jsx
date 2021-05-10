@@ -10,7 +10,7 @@ import axios from "axios";
 import {} from "reactstrap";
 import NavBar from "./NavBar";
 import { Link, useHistory } from "react-router-dom";
-import { getPet, getUsers, createUser } from "./lib/api";
+import { getProduct, getUsers, createUser } from "./lib/api";
 
 function Dashboard(props) {
   const [user, setUser] = useState("");

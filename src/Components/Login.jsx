@@ -23,31 +23,12 @@ function Login(props) {
   const [user, setUser] = useState("");
   const [findUser, getUser] = useState("");
   const [modalLog, setModalLog] = useState(false);
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("Hi");
-  const [cell, setCell] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [passwordConfirm, setPasswordConfirm] = useState("");
   const toggleLog = () => setModalLog(!modalLog);
-  const [modalSign, setModalSign] = useState(false);
-  const history = useHistory();
-  const toggleSign = () => setModalSign(!modalSign);
-  const [isAdmin, setIsAdmin] = useState(false);
-  function onSignUp(event) {
-    event.preventDefault();
-    const newUser = {
-      FirstName: setEmail(),
-      LastName: lastName,
-      Email: email,
-      Cell: cell,
-      Password: password,
-      PasswordConfirm: passwordConfirm,
-    };
 
-    setUser(newUser);
-    console.log(user);
-  }
+  const history = useHistory();
+
 
   function onLogin(event) {
     event.preventDefault();
@@ -83,7 +64,7 @@ function Login(props) {
       Email: email,
       Password: password,
     });
-
+  
     if (response.status === 200) {
       localStorage.setItem("token", response);
     }
@@ -92,17 +73,7 @@ function Login(props) {
     const reload = window.location.reload();
   }
 
-  async function fetchUsers(event) {
-    event.preventDefault();
 
-    const response = await axios.post("http://localhost:5000/api/user/login", {
-      email: email,
-      password: password,
-    });
-    if (response.status === 200) {
-      localStorage.setItem("token", response.data);
-    }
-  }
 
   return (
     <div>
@@ -112,14 +83,6 @@ function Login(props) {
           onClick={toggleLog}
           className="LoginBtn"
           id="LoginBtn"
-          // style={{
-          //   height: "70px",
-          //   width: "130px",
-          //   borderRadius: "20px",
-          //   fontSize: "20px",
-          //   left: "20px",
-          //   backgroundColor: "#41B3A3",
-          // }}
         >
           Login
         </Button>
